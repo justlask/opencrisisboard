@@ -8,7 +8,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 // define paths
 const nodeModulesPath = path.resolve(__dirname, '../node_modules');
 const buildPath = path.resolve(__dirname, '../public', 'build');
-const mainAppPath = path.resolve(__dirname, '../frontend', 'App', 'index.js');
+const mainAppPath = path.resolve(__dirname, '../frontend', 'App', 'index');
 const sharedStylesPath = path.resolve(__dirname, '../frontend', 'SharedStyles');
 const componentsPath = path.resolve(__dirname, '../frontend', 'Components');
 const containersPath = path.resolve(__dirname, '../frontend', 'Containers');
@@ -58,7 +58,7 @@ module.exports = {
   ],
 
   resolve: {
-    extensions: ['', '.js', '.css'],
+    extensions: ['', '.js', '.jsx', '.css'],
     alias: {
       SharedStyles: sharedStylesPath,
       Components: componentsPath,
