@@ -31,6 +31,7 @@ const getUser = (user_id) => {
  * @param  {Object} gitProfile    profile information provided by github
  * @return {promise}              user doc
  */
+/*
 const signInViaGithub = (gitProfile) => {
   return new Promise((resolve, reject) => {
 
@@ -106,6 +107,7 @@ const signInViaGithub = (gitProfile) => {
 
   });
 };
+*/
 
 /**
  * get the full profile of a user
@@ -155,7 +157,6 @@ const getFullProfile = (username) => {
 };
 
 module.exports = {
-  signInViaGithub,
   getUser,
   getFullProfile,
 };
