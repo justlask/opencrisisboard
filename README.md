@@ -1,7 +1,7 @@
-![logo](./docs/design_assets/logo.png)
+![logo](https://i.imgur.com/ghFvXMI.png)
 
 
-# ReForum
+# OpenCrisisBoard
 A minimal forum application built with the following technologies:
 * [React](https://facebook.github.io/react/)
 * [Redux](http://redux.js.org/)
@@ -9,16 +9,18 @@ A minimal forum application built with the following technologies:
 * [ExpressJS](https://expressjs.com/)
 * [PassportJS](http://passportjs.org/)
 * [MongoDB](https://www.mongodb.com/)
+* [ReForum](https://github.com/proshoumma/ReForum)
 
-Demo app is deployed on Heroku. Please check it out: https://reforum-app.herokuapp.com/
+Demo app is deployed on Heroku. Please check it out: tbd
 
 ### Application Features
+* Users can log in with verified social accounts (Facebook and Twitter only, no email or account sign up allowed for social proof reasons)
 * Users can post a discussion
 * Users can reply their opinions regarding discussion
 * Users can favorite discussions
 * Users have their own profile page
 * Admin can create new forum categories
-* Admin have a lot of power over every users discussions and opinions :-p
+* Admins have a lot of power over every users discussions and opinions
 
 ### Documentations
 * [API Docs](https://github.com/shoumma/ReForum/blob/master/docs/api.md)
@@ -40,7 +42,7 @@ Please make sure you have following software installed in your system:
 
 First we need to clone the repository:
 ```
-$ git clone https://github.com/shoumma/ReForum
+$ git clone https://github.com/crisisboard/opencrisisboard
 ```
 
 Then we have to install the necessary dependencies using either NPM or Yarn:
@@ -51,7 +53,9 @@ $ npm i
 $ yarn
 ```
 
-Since the app currently uses GitHub authentication, we need to configure a GitHub OAuth application. You can register a new application from this link https://github.com/settings/developers
+Since the app currently uses Twitter and Facebook authentication, we need to configure a Twitter and Facebook application. You can register a new application from this link 
+
+(TBD)
 
 We need to grab the following information from the OAuth application.
 * Client ID
