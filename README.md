@@ -1,24 +1,17 @@
-![logo](./docs/design_assets/logo.png)
+![logo](https://i.imgur.com/ghFvXMI.png)
 
 
-# ReForum
-A minimal forum application built with the following technologies:
-* [React](https://facebook.github.io/react/)
-* [Redux](http://redux.js.org/)
-* [Webpack](https://webpack.js.org/)
-* [ExpressJS](https://expressjs.com/)
-* [PassportJS](http://passportjs.org/)
-* [MongoDB](https://www.mongodb.com/)
-
-Demo app is deployed on Heroku. Please check it out: https://reforum-app.herokuapp.com/
+# OpenCrisisBoard
+OpenCrisisBoard (OCB) is a lightweight forum application based on ReForum that enables social-backed, accesssible, long-form and short-form communication around crisis-related topics. OpenCrisisBoard is most useful when deployed in small communities, supported by local government as administrators and moderators. It allows users to log in with verified social media accounts to have meaningful discussions around relevant topics, in addition to offering services such as volunteering.
 
 ### Application Features
+* Users can log in with verified social accounts (Facebook and Twitter only, no email or account sign up allowed for social proof reasons)
 * Users can post a discussion
 * Users can reply their opinions regarding discussion
 * Users can favorite discussions
 * Users have their own profile page
 * Admin can create new forum categories
-* Admin have a lot of power over every users discussions and opinions :-p
+* Admins have a lot of power over every users discussions and opinions
 
 ### Documentations
 * [API Docs](https://github.com/shoumma/ReForum/blob/master/docs/api.md)
@@ -40,7 +33,7 @@ Please make sure you have following software installed in your system:
 
 First we need to clone the repository:
 ```
-$ git clone https://github.com/shoumma/ReForum
+$ git clone https://github.com/crisisboard/opencrisisboard
 ```
 
 Then we have to install the necessary dependencies using either NPM or Yarn:
@@ -51,7 +44,9 @@ $ npm i
 $ yarn
 ```
 
-Since the app currently uses GitHub authentication, we need to configure a GitHub OAuth application. You can register a new application from this link https://github.com/settings/developers
+Since the app currently uses Twitter and Facebook authentication, we need to configure a Twitter and Facebook application. You can register a new application from this link 
+
+(TBD)
 
 We need to grab the following information from the OAuth application.
 * Client ID
@@ -103,6 +98,15 @@ Congratulation! You now have a clone of this application in your server. :-)
 
 ## License
 [MIT License](https://github.com/shoumma/Mister-Poster/blob/master/LICENSE). Do whatever you want to do. :-)
+
+A minimal forum application built with the following technologies:
+* [React](https://facebook.github.io/react/)
+* [Redux](http://redux.js.org/)
+* [Webpack](https://webpack.js.org/)
+* [ExpressJS](https://expressjs.com/)
+* [PassportJS](http://passportjs.org/)
+* [MongoDB](https://www.mongodb.com/)
+* [ReForum](https://github.com/proshoumma/ReForum)
 
 ## Conclusion
 The application is created with lots of ♥. Any pull request, issues and contribution is very appreciated. It would be really great if we can take this application to the next level, where it can be used as a platform for forums.
