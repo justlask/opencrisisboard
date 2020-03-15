@@ -9,13 +9,11 @@ const userSchema = mongoose.Schema({
   avatarUrl: String,
   email: String,
   role: { type: String, default: 'user' }, // ['admin', 'moderator', 'user']
-  github: {
+  profile: {
     id: Number,
     url: String,
-    company: String,
     location: String,
     bio: String,
-    hireable: Boolean,
     followers: Number,
     following: Number,
   },

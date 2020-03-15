@@ -12,17 +12,31 @@ const userAPI = (app) => {
     else res.send(null);
   });
 
-  // github authentication route
+  // facebook authentication route
   app.get(
-    '/api/user/authViaGitHub',
-    passport.authenticate('github')
+    '/api/user/authViaFacebook',
+    passport.authenticate('facebook')
   );
 
-  // callback route from github
+  // twitter authentication route
   app.get(
-    // this should match callback url of github app
-    '/api/user/authViaGitHub/callback',
-    passport.authenticate('github', { failureRedirect: '/signIn/failed' }),
+    '/api/user/authViaTwitter',
+    passport.authenticate('twitter')
+  );
+
+  // callback route from facebook
+  app.get(
+    // this should match callback url of facebook app
+    '/api/user/authViaFacebook/callback',
+    passport.authenticate('facebook', { failureRedirect: '/signIn/failed' }),
+    (req, res) => { res.redirect('/'); }
+  );
+
+  // callback route from twitter
+  app.get(
+    // this should match callback url of twitter app
+    '/api/user/authViaTwitter/callback',
+    passport.authenticate('twitter', { failureRedirect: '/signIn/failed' }),
     (req, res) => { res.redirect('/'); }
   );
 

@@ -25,38 +25,34 @@ const getUser = (user_id) => {
 };
 
 /**
- * sign in/up user via github provided info
+ * sign in/up user via twitter provided info
  * this will signin the user if user existed
  * or will create a new user using git infos
- * @param  {Object} gitProfile    profile information provided by github
- * @return {promise}              user doc
+ * @param  {Object} profile    profile information provided by twitter
+ * @return {promise}          user doc
  */
-/*
-const signInViaGithub = (gitProfile) => {
+const signInViaTwitter = (profile) => {
   return new Promise((resolve, reject) => {
 
     // find if user exist on db
-    User.findOne({ username: gitProfile.username }, (error, user) => {
+    User.findOne({ username: profile.username }, (error, user) => {
       if (error) { console.log(error); reject(error); }
       else {
         // get the email from emails array of gitProfile
-        const email = _.find(gitProfile.emails, { verified: true }).value;
+        const email = _.find(profile.emails).value;
 
         // user existed on db
         if (user) {
           // update the user with latest git profile info
-          user.name = gitProfile.displayName;
-          user.username = gitProfile.username;
-          user.avatarUrl = gitProfile._json.avatar_url;
+          user.name = profile.displayName;
+          user.username = profile.username;
+          user.avatarUrl = profile._json.avatar_url;
           user.email = email;
-          user.github.id = gitProfile._json.id,
-          user.github.url = gitProfile._json.html_url,
-          user.github.company = gitProfile._json.company,
-          user.github.location = gitProfile._json.location,
-          user.github.hireable = gitProfile._json.hireable,
-          user.github.bio = gitProfile._json.bio,
-          user.github.followers = gitProfile._json.followers,
-          user.github.following = gitProfile._json.following,
+          user.profile.id = profile._json.id,
+          user.profile.url = profile._json.html_url,
+          user.profile.bio = profile._json.bio,
+          user.profile.followers = profile._json.followers,
+          user.profile.following = profile._json.following,
 
           // save the info and resolve the user doc
           user.save((error) => {
@@ -77,20 +73,16 @@ const signInViaGithub = (gitProfile) => {
 
             // create a new user
             const newUser = new User({
-              name: gitProfile.displayName,
-              username: gitProfile.username,
-              avatarUrl: gitProfile._json.avatar_url,
+              name: profile.displayName,
+              username: profile.username,
+              avatarUrl: profile._json.avatar_url,
               email: email,
               role: assignAdmin ? 'admin' : 'user',
-              github: {
-                id: gitProfile._json.id,
-                url: gitProfile._json.html_url,
-                company: gitProfile._json.company,
-                location: gitProfile._json.location,
-                hireable: gitProfile._json.hireable,
-                bio: gitProfile._json.bio,
-                followers: gitProfile._json.followers,
-                following: gitProfile._json.following,
+              profile: {
+                id: profile._json.id,
+                url: profile._json.html_url,
+                followers: profile._json.followers,
+                following: profile._json.following,
               },
             });
 
@@ -107,7 +99,82 @@ const signInViaGithub = (gitProfile) => {
 
   });
 };
-*/
+
+/**
+ * sign in/up user via facebook provided info
+ * this will signin the user if user existed
+ * or will create a new user using git infos
+ * @param  {Object} profile    profile information provided by facebook
+ * @return {promise}          user doc
+ */
+const signInViaFacebook = (profile) => {
+  return new Promise((resolve, reject) => {
+
+    // find if user exist on db
+    User.findOne({ username: profile.username }, (error, user) => {
+      if (error) { console.log(error); reject(error); }
+      else {
+        // get the email from emails array of gitProfile
+        const email = _.find(profile.emails).value;
+
+        // user existed on db
+        if (user) {
+          // update the user with latest git profile info
+          user.name = profile.displayName;
+          user.username = profile.username;
+          user.avatarUrl = profile._json.avatar_url;
+          user.email = email;
+          user.profile.id = profile._json.id,
+          user.profile.url = profile._json.html_url,
+          user.profile.bio = profile._json.bio,
+          user.profile.followers = profile._json.followers,
+          user.profile.following = profile._json.following,
+
+          // save the info and resolve the user doc
+          user.save((error) => {
+            if (error) { console.log(error); reject(error); }
+            else { resolve(user); }
+          });
+        }
+
+        // user doesn't exists on db
+        else {
+          // check if it is the first user (adam/eve) :-p
+          // assign him/her as the admin
+          User.count({}, (err, count) => {
+            console.log('usercount: ' + count);
+
+            let assignAdmin = false;
+            if (count === 0) assignAdmin = true;
+
+            // create a new user
+            const newUser = new User({
+              name: profile.displayName,
+              username: profile.username,
+              avatarUrl: profile._json.avatar_url,
+              email: email,
+              role: assignAdmin ? 'admin' : 'user',
+              profile: {
+                id: profile._json.id,
+                url: profile._json.html_url,
+                followers: profile._json.followers,
+                following: profile._json.following,
+              },
+            });
+
+            // save the user and resolve the user doc
+            newUser.save((error) => {
+              if (error) { console.log(error); reject(error); }
+              else { resolve(newUser); }
+            });
+
+          });
+        }
+      }
+    });
+
+  });
+};
 
 /**
  * get the full profile of a user
@@ -159,4 +226,6 @@ const getFullProfile = (username) => {
 module.exports = {
   getUser,
   getFullProfile,
+  signInViaTwitter,
+  signInViaFacebook,
 };
