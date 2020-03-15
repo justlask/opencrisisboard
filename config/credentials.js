@@ -4,6 +4,7 @@ module.exports = {
   // facebook details
   FB_APPID : process.env.FB_APPID || null,
   FB_CBURL : process.env.FB_CBURL || null,
+  FB_FIELDS : process.env.FB_FIELDS || ['id', 'displayName', 'picture.type(large)', 'email', 'birthday', 'friends', 'first_name', 'last_name', 'middle_name', 'gender', 'link'],
   FB_SECRET : process.env.FB_SECRET || null,
 
   // twitter details

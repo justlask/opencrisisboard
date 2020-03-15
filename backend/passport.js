@@ -13,6 +13,7 @@ const signInViaFacebook = require('./entities/user/controller').signInViaFaceboo
 // create credentials
 const FB_APPID = require('../config/credentials').FB_APPID;
 const FB_CBURL = require('../config/credentials').FB_CBURL;
+const FB_FIELDS = require('../config/credentials').FB_FIELDS;
 const FB_SECRET = require('../config/credentials').FB_SECRET;
 
 // create credentials
@@ -48,6 +49,7 @@ const passportConfig = (app) => {
       clientID: FB_APPID,
       callbackURL: FB_CBURL,
       clientSecret: FB_SECRET,
+      profileFields: FB_FIELDS,
     }, async (accessToken, refreshToken, profile, done) => {
 
       // try/catch

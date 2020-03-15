@@ -109,26 +109,24 @@ const signInViaTwitter = (profile) => {
  */
 const signInViaFacebook = (profile) => {
   return new Promise((resolve, reject) => {
-
     // find if user exist on db
-    User.findOne({ username: profile.username }, (error, user) => {
+    User.findOne({ 'profile.id' : profile.id, 'type' : 'facebook' }, (error, user) => {
       if (error) { console.log(error); reject(error); }
       else {
         // get the email from emails array of gitProfile
-        const email = _.find(profile.emails).value;
+        const email = profile.emails ? _.find(profile.emails).value : null;
+        const avatar = profile.photos ? _.find(profile.photos).value : null;
 
         // user existed on db
         if (user) {
           // update the user with latest git profile info
           user.name = profile.displayName;
-          user.username = profile.username;
-          user.avatarUrl = profile._json.avatar_url;
           user.email = email;
-          user.profile.id = profile._json.id,
-          user.profile.url = profile._json.html_url,
-          user.profile.bio = profile._json.bio,
-          user.profile.followers = profile._json.followers,
-          user.profile.following = profile._json.following,
+          user.provider = 'facebook';
+          user.username = profile.username || profile.displayName;
+          user.avatarUrl = avatar;
+          user.profile.id = profile.displayName;
+          user.profile.url = profile.profileUrl;
 
           // save the info and resolve the user doc
           user.save((error) => {
@@ -150,15 +148,13 @@ const signInViaFacebook = (profile) => {
             // create a new user
             const newUser = new User({
               name: profile.displayName,
-              username: profile.username,
-              avatarUrl: profile._json.avatar_url,
+              username: profile.username || profile.displayName,
+              avatarUrl: avatar,
               email: email,
               role: assignAdmin ? 'admin' : 'user',
               profile: {
-                id: profile._json.id,
-                url: profile._json.html_url,
-                followers: profile._json.followers,
-                following: profile._json.following,
+                id: profile.id,
+                url: profile.profileUrl,
               },
             });
 

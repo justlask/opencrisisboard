@@ -9,6 +9,7 @@ const userSchema = mongoose.Schema({
   avatarUrl: String,
   email: String,
   role: { type: String, default: 'user' }, // ['admin', 'moderator', 'user']
+  provider : String,
   profile: {
     id: Number,
     url: String,
