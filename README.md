@@ -2,16 +2,7 @@
 
 
 # OpenCrisisBoard
-A minimal forum application built with the following technologies:
-* [React](https://facebook.github.io/react/)
-* [Redux](http://redux.js.org/)
-* [Webpack](https://webpack.js.org/)
-* [ExpressJS](https://expressjs.com/)
-* [PassportJS](http://passportjs.org/)
-* [MongoDB](https://www.mongodb.com/)
-* [ReForum](https://github.com/proshoumma/ReForum)
-
-Demo app is deployed on Heroku. Please check it out: tbd
+OpenCrisisBoard (OCB) is a lightweight forum application based on ReForum that enables social-backed, accesssible, long-form and short-form communication around crisis-related topics. OpenCrisisBoard is most useful when deployed in small communities, supported by local government as administrators and moderators. It allows users to log in with verified social media accounts to have meaningful discussions around relevant topics, in addition to offering services such as volunteering.
 
 ### Application Features
 * Users can log in with verified social accounts (Facebook and Twitter only, no email or account sign up allowed for social proof reasons)
@@ -107,6 +98,15 @@ Congratulation! You now have a clone of this application in your server. :-)
 
 ## License
 [MIT License](https://github.com/shoumma/Mister-Poster/blob/master/LICENSE). Do whatever you want to do. :-)
+
+A minimal forum application built with the following technologies:
+* [React](https://facebook.github.io/react/)
+* [Redux](http://redux.js.org/)
+* [Webpack](https://webpack.js.org/)
+* [ExpressJS](https://expressjs.com/)
+* [PassportJS](http://passportjs.org/)
+* [MongoDB](https://www.mongodb.com/)
+* [ReForum](https://github.com/proshoumma/ReForum)
 
 ## Conclusion
 The application is created with lots of ♥. Any pull request, issues and contribution is very appreciated. It would be really great if we can take this application to the next level, where it can be used as a platform for forums.
