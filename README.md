@@ -21,7 +21,7 @@ OpenCrisisBoard (OCB) is a lightweight forum application based on ReForum that e
 ![home view](https://i.imgur.com/bZjOeMx.png)
 ### Unlimited Boards
 ![home view](https://i.imgur.com/33oLs2r.png)
-### Login with Facebook or Twitter
+### Login with Facebook or Twitter (It attaches to your post to avoid spread of misinformation)
 ![home view](https://i.imgur.com/mh3q0Tg.png)
 ### Admin View
 ![admin view](./docs/design_assets/admin_view.jpg)
