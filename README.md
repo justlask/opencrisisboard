@@ -38,6 +38,7 @@ services:
     - mongo
     environment:
     - PORT=3030
+    - DBURL=mongodb://localhost:27017/reforum'
     - FB_APPID=[FB APP ID HERE]
     - FB_CBURL=[FB CALLBACK URL HERE]
     - FB_SECRET=[FB SECRET HERE]
