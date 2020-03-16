@@ -197,14 +197,14 @@ const signInViaGithub = (gitProfile) => {
           user.username = gitProfile.username;
           user.avatarUrl = gitProfile._json.avatar_url;
           user.email = email;
-          user.github.id = gitProfile._json.id,
-          user.github.url = gitProfile._json.html_url,
-          user.github.company = gitProfile._json.company,
-          user.github.location = gitProfile._json.location,
-          user.github.hireable = gitProfile._json.hireable,
-          user.github.bio = gitProfile._json.bio,
-          user.github.followers = gitProfile._json.followers,
-          user.github.following = gitProfile._json.following,
+          user.profile.id = gitProfile._json.id,
+          user.profile.url = gitProfile._json.html_url,
+          user.profile.company = gitProfile._json.company,
+          user.profile.location = gitProfile._json.location,
+          user.profile.hireable = gitProfile._json.hireable,
+          user.profile.bio = gitProfile._json.bio,
+          user.profile.followers = gitProfile._json.followers,
+          user.profile.following = gitProfile._json.following,
 
           // save the info and resolve the user doc
           user.save((error) => {
@@ -231,7 +231,7 @@ const signInViaGithub = (gitProfile) => {
               email: email,
               role: assignAdmin ? 'admin' : 'user',
               provider: 'github',
-              github: {
+              profile: {
                 id: gitProfile._json.id,
                 url: gitProfile._json.html_url,
                 company: gitProfile._json.company,
