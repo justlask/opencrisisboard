@@ -17,9 +17,12 @@ OpenCrisisBoard (OCB) is a lightweight forum application based on ReForum that e
 * [API Docs](https://github.com/shoumma/ReForum/blob/master/docs/api.md)
 * [System Overview](https://github.com/shoumma/ReForum/blob/master/docs/system_overview.md)
 
-### Home View
-![home view](./docs/design_assets/home_view.jpg)
-
+### New Discussions
+![home view](https://i.imgur.com/bZjOeMx.png)
+### Unlimited Boards
+![home view](https://i.imgur.com/33oLs2r.png)
+### Login with Facebook or Twitter
+![home view](https://i.imgur.com/mh3q0Tg.png)
 ### Admin View
 ![admin view](./docs/design_assets/admin_view.jpg)
 
