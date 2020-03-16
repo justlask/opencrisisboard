@@ -6,7 +6,8 @@ class Profile extends Component {
   render() {
     const {
       name,
-      gitHandler,
+      username,
+      provider,
       location,
       avatarUrl,
     } = this.props;
@@ -18,7 +19,7 @@ class Profile extends Component {
         </div>
         <div className={styles.infoContainer}>
           <div className={styles.name}>{ name }</div>
-          <div className={styles.gitHandler}><i className={classnames('fa fa-github-alt', styles.gitIcon)}></i> { gitHandler }</div>
+          <div className={styles.gitHandler}><i className={classnames(`fa fa-${provider}`, styles.gitIcon)}></i> { username }</div>
           <div className={styles.location}>{ location }</div>
         </div>
       </div>
@@ -28,14 +29,16 @@ class Profile extends Component {
 
 Profile.defaultProps = {
   name: 'Hello World',
-  gitHandler: 'helloWorld',
+  username: 'helloWorld',
+  provider: 'helloWorld',
   location: 'Somewhere in the world',
   avatarUrl: 'https://google.com',
 };
 
 Profile.propTypes = {
   name: React.PropTypes.string,
-  gitHandler: React.PropTypes.string,
+  username: React.PropTypes.string,
+  provider: React.PropTypes.string,
   location: React.PropTypes.string,
   avatarUrl: React.PropTypes.string,
 };

@@ -27,7 +27,7 @@ class UserMenu extends Component {
     const { activeSubMenu } = this.state;
     const {
       signedIn,
-      gitHandler,
+      userName,
     } = this.props;
 
     if (activeSubMenu) {
@@ -54,7 +54,7 @@ class UserMenu extends Component {
             </div>
           ) }
 
-          { signedIn && <span onClick={this.toggleSubMenu}><Link className={styles.subMenuItem} to={`/user/${gitHandler}`}>My Profile</Link></span> }
+          { signedIn && <span onClick={this.toggleSubMenu}><Link className={styles.subMenuItem} to={`/user/${userName}`}>My Profile</Link></span> }
           {/* { signedIn && <a className={styles.subMenuItem} href={'#'}>Settings</a> } */}
           { signedIn && <a className={styles.subMenuItem} href={'/api/user/signout'}>Sign Out</a> }
         </div>
@@ -103,14 +103,12 @@ class UserMenu extends Component {
 UserMenu.defaultProps = {
   signedIn: false,
   userName: '',
-  gitHandler: '',
   avatar: '',
 };
 
 UserMenu.propTypes = {
   signedIn: React.PropTypes.bool.isRequired,
   userName: React.PropTypes.string,
-  gitHandler: React.PropTypes.string,
   avatar: React.PropTypes.string,
 };
 

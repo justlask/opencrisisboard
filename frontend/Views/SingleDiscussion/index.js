@@ -137,8 +137,9 @@ class SingleDiscussion extends Component {
 
     const {
       avatarUrl,
-      name,
       username,
+      provider,
+      profile,
     } = discussion.user;
 
     // check if logged in user is owner of the discussion
@@ -153,17 +154,18 @@ class SingleDiscussion extends Component {
 
     return (
       <div className={appLayout.constraintWidth}>
-        <Helmet><title>{`${title} | ReForum`}</title></Helmet>
+        <Helmet><title>{`${title} | OpenCrisisBoard`}</title></Helmet>
 
         <Discussion
           id={_id}
+          url={(profile || {}).url}
           userAvatar={avatarUrl}
-          userName={name}
-          userGitHandler={username}
+          userName={username}
           discTitle={title}
           discDate={date}
           discContent={content}
           tags={tags}
+          provider={provider}
           favoriteCount={favorites.length}
           favoriteAction={toggleFavorite}
           userFavorited={userFavorited}

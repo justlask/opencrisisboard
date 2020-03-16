@@ -34,8 +34,7 @@ class AdminHeader extends Component {
           Welcome Admin
           <UserMenu
             signedIn={authenticated}
-            userName={name || username}
-            gitHandler={username}
+            username={username}
             avatar={avatarUrl}
           />
         </div>

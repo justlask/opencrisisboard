@@ -11,7 +11,8 @@ class DiscussionBox extends Component {
     const {
       voteCount,
       userName,
-      userGitHandler,
+      url,
+      provider,
       discussionTitle,
       time,
       opinionCount,
@@ -28,9 +29,9 @@ class DiscussionBox extends Component {
         <div className={classnames(styles.title, userProfile && styles.titleBottomMargin)}><Link to={link}>{discussionTitle}</Link></div>
 
         { !userProfile && <div className={styles.posterInfo}>
-          <Link to={`/user/${userGitHandler}`} className={styles.name}>{userName}</Link>
-          <a target="_blank" href={`https://www.github.com/${userGitHandler}`} className={styles.gitHandler}>
-            - <i className={classnames('fa fa-github-alt', styles.gitIcon)}></i> {userGitHandler}
+          <Link to={`/user/${encodeURIComponent(userName)}`} className={styles.name}>{userName}</Link>
+          <a target="_blank" href={ url || '#!' } className={styles.gitHandler}>
+            - <i className={classnames(`fa fa-${provider}`, styles.gitIcon)}></i> {userName}
           </a>
         </div> }
 
@@ -51,10 +52,10 @@ class DiscussionBox extends Component {
 }
 
 DiscussionBox.defaultProps = {
+  url: null,
   discussionId: 1,
   voteCount: 20,
   userName: 'Hello World',
-  userGitHandler: 'github',
   discussionTitle: 'This is a default post title',
   time: Moment(),
   opinionCount: 12,
@@ -67,7 +68,7 @@ DiscussionBox.propTypes = {
   discussionId: React.PropTypes.number,
   voteCount: React.PropTypes.number,
   userName: React.PropTypes.string,
-  userGitHandler: React.PropTypes.string,
+  url: React.PropTypes.any,
   discussionTitle: React.PropTypes.string,
   time: React.PropTypes.any,
   opinionCount: React.PropTypes.number,

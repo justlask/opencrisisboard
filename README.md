@@ -38,7 +38,7 @@ services:
     - mongo
     environment:
     - PORT=3030
-    - DBURL=mongodb://localhost:27017/reforum'
+    - DBURL=mongodb://localhost:27017/OpenCrisisBoard'
     - FB_APPID=[FB APP ID HERE]
     - FB_CBURL=[FB CALLBACK URL HERE]
     - FB_SECRET=[FB SECRET HERE]
@@ -98,7 +98,7 @@ Now, we need to configure the credentials inside of the codebase. You can either
 
 ```js
 module.exports = {
-  DBURL : process.env.DBURL || 'mongodb://localhost:27017/reforum',
+  DBURL : process.env.DBURL || 'mongodb://localhost:27017/OpenCrisisBoard',
 
   // facebook details
   FB_APPID : [FB APP ID HERE],
@@ -122,7 +122,7 @@ FB_APPID='[FB APP ID HERE]' FB_SECRET='[FB SECRET HERE]' FB_CBURL='[FB CALLBACK 
 We need to provide all the information here. You can notice that we need the database url here too. My `local` MongoDB url looks like:
 
 ```
-mongodb://localhost:27017/reforum
+mongodb://localhost:27017/OpenCrisisBoard
 ```
 
 Now we are ready to run the application. You can run either run the development environment of the application which will include Hot-Reload for JS codes using Webpack and the Redux dev tool extension, or you can run the production edition. The default port for developer edition is `3030`, and for production is `process.env.PORT`.

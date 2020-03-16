@@ -47,8 +47,8 @@ class UserProfile extends Component {
     const {
       name,
       username,
+      provider,
       avatarUrl,
-      github,
       discussions,
     } = profile;
 
@@ -62,13 +62,13 @@ class UserProfile extends Component {
 
     return (
       <div className={classnames(appLayout.constraintWidth, styles.container)}>
-        <Helmet><title>{`${name || username} | ReForum`}</title></Helmet>
+        <Helmet><title>{`${name || username} | OpenCrisisBoard`}</title></Helmet>
 
         <div className={appLayout.primaryContent}>
           <Profile
             name={name}
-            gitHandler={username}
-            location={github.location}
+            username={username}
+            provider={provider}
             avatarUrl={avatarUrl}
           />
 

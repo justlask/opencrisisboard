@@ -11,13 +11,14 @@ import RichEditor from 'Components/RichEditor';
 class Opinion extends Component {
   render() {
     const {
+      url,
       opinionId,
       userAvatar,
       userName,
-      userGitHandler,
       opDate,
       opContent,
       userId,
+      provider,
       currentUserId,
       currentUserRole,
       deleteAction,
@@ -34,10 +35,10 @@ class Opinion extends Component {
         <div className={styles.infoContainer}>
           <img className={styles.avatar} src={userAvatar} />
           <div className={styles.userInfo}>
-            <Link to={`/user/${userGitHandler}`} className={styles.name}>{userName || userGitHandler}</Link>
-            <a href={`https://www.github.com/${userGitHandler}`} target="_blank" className={styles.gitHandler}>
-              <i className={classnames('fa fa-github-alt', styles.gitIcon)}></i>
-              <span>{userGitHandler}</span>
+            <Link to={`/user/${userName}`} className={styles.name}>{userName}</Link>
+            <a href={ url || '#!' } target="_blank" className={styles.gitHandler}>
+              <i className={classnames(`fa fa-${provider}`, styles.gitIcon)}></i>
+              <span>{userName}</span>
             </a>
           </div>
           <div className={styles.dateInfo}>{dateDisplay}</div>
@@ -62,10 +63,11 @@ class Opinion extends Component {
 }
 
 Opinion.defaultProps = {
+  url: null,
+  provider: '',
   opinionId: '12345',
   userAvatar: PlaceholderImage,
   userName: 'User name',
-  userGitHandler: 'github',
   opDate: 'a day ago',
   opContent: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
   userId: '12345',
@@ -76,10 +78,11 @@ Opinion.defaultProps = {
 };
 
 Opinion.propTypes = {
+  url: React.PropTypes.any,
+  provider: React.PropTypes.string,
   opinionId: React.PropTypes.string,
   userAvatar: React.PropTypes.string,
   userName: React.PropTypes.string,
-  userGitHandler: React.PropTypes.string,
   opDate: React.PropTypes.any,
   opContent: React.PropTypes.string,
   userId: React.PropTypes.string,

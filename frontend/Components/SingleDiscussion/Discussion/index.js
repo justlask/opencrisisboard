@@ -14,10 +14,11 @@ class Discussion extends Component {
   render() {
     const {
       id,
+      url,
       userAvatar,
       userName,
-      userGitHandler,
       discTitle,
+      provider,
       discDate,
       discContent,
       tags,
@@ -47,10 +48,10 @@ class Discussion extends Component {
           <img className={styles.avatar} src={userAvatar} />
           <div className={styles.columnOnSmallBP}>
             <div className={styles.userInfo}>
-              <Link to={`/user/${userGitHandler}`} className={styles.name}>{userName || userGitHandler}</Link>
-              <a href={`https://www.github.com/${userGitHandler}`} target="_blank" className={styles.gitHandler}>
-                <i className={classnames('fa fa-github-alt', styles.gitIcon)}></i>
-                <span>{userGitHandler}</span>
+              <Link to={`/user/${userName}`} className={styles.name}>{userName}</Link>
+              <a href={ url || '#!'} target="_blank" className={styles.gitHandler}>
+                <i className={classnames(`fa fa-${provider}`, styles.gitIcon)}></i>
+                <span>{userName}</span>
               </a>
             </div>
             <div className={styles.dateInfo}>{dateDisplay}</div>
@@ -90,9 +91,10 @@ class Discussion extends Component {
 
 Discussion.defaultProps = {
   id: 0,
+  url: null,
+  provider: 'github',
   userAvatar: PlaceholderImage,
   userName: 'User name',
-  userGitHandler: 'github',
   discTitle: 'Default Discussion Title',
   discDate: 'a day ago',
   discContent: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
@@ -108,9 +110,10 @@ Discussion.defaultProps = {
 
 Discussion.propTypes = {
   id: React.PropTypes.any,
+  url: React.PropTypes.any,
+  provider: React.PropTypes.string,
   userAvatar: React.PropTypes.string,
   userName: React.PropTypes.string,
-  userGitHandler: React.PropTypes.string,
   discTitle: React.PropTypes.string,
   discDate: React.PropTypes.any,
   discContent: React.PropTypes.any,
