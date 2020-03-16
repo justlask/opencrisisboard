@@ -23,6 +23,33 @@ OpenCrisisBoard (OCB) is a lightweight forum application based on ReForum that e
 ### Admin View
 ![admin view](./docs/design_assets/admin_view.jpg)
 
+## Deploy via Docker
+
+The entire application is built to deploy with docker compose, you can edit all of the below environment variables in the file `docker-compose.yml`. The file looks like this:
+
+```
+version: "2"
+services:
+  web:
+    build: .
+    ports:
+    - "8080:8080"
+    depends_on:
+    - mongo
+    environment:
+    - PORT=3030
+    - FB_APPID=[FB APP ID HERE]
+    - FB_CBURL=[FB CALLBACK URL HERE]
+    - FB_SECRET=[FB SECRET HERE]
+    - TW_APPID=[TWITTER APP ID HERE]
+    - TW_CBURL=[TWITTER CALLBACK URL HERE]
+    - TW_SECRET=[TWITTER SECRET HERE]
+  mongo:
+    image: mongo
+    ports:
+    - "27017:27017"
+```
+
 ## Deploy on you own server
 
 Please make sure you have following software installed in your system:
@@ -46,44 +73,61 @@ $ yarn
 
 Since the app currently uses Twitter and Facebook authentication, we need to configure a Twitter and Facebook application. You can register a new application from this link 
 
-(TBD)
+[Twitter Developer Portal](https://developer.twitter.com/)
+[Facebook Developer Portal](https://developers.facebook.com/)
 
-We need to grab the following information from the OAuth application.
+We need to grab the following information from the application.
 * Client ID
 * Client Secret
 * Callback URL
 
-The `Callback URL` is the domain where GitHub will redirect the user after a successful login. You can use a domain name or local host. But we need to append the URL with the path `/api/user/authViaGitHub/callback`. So, the complete url will look like:
-`https://localhost:8080/api/user/authViaGitHub/callback`
+The `Callback URL` is the domain where Twitter or Facebook will redirect the user after a successful login. You can use a domain name or local host. But we need to append the URL with the path `/api/user/authViaTwitter/callback` or `/api/user/authViaFacebook/callback`. So, the complete url will look like:
+`https://localhost:8080/api/user/authViaTwitter/callback` or `https://localhost:8080/api/user/authViaFacebook/callback`
 
-Now, we need to configure the credentials inside of the codebase. Open the file `config/credentials.js` add the necessary information. The file looks like this:
+Now, we need to configure the credentials inside of the codebase. You can either edit the credentials file directly in `config/credentials.js` or add the details to your environment variables when you run the application:
+
 ```js
 module.exports = {
-  GITHUB_CLIENT_ID: '',
-  GITHUB_CLIENT_SECRET: '',
-  GITHUB_CALLBACK_URL: '',
-  DBURL: '',
+  DBURL : process.env.DBURL || 'mongodb://localhost:27017/reforum',
+
+  // facebook details
+  FB_APPID : [FB APP ID HERE],
+  FB_CBURL : [FB CALLBACK URL HERE],
+  FB_FIELDS : ['id', 'displayName', 'picture.type(large)', 'email', 'birthday', 'friends', 'first_name', 'last_name', 'middle_name', 'gender', 'link'],
+  FB_SECRET : [FB SECRET HERE],
+
+  // twitter details
+  TW_APPID : [TWITTER APP ID HERE],
+  TW_CBURL : [TWITTER CALLBACK URL HERE],
+  TW_SECRET : [TWITTER SECRET HERE],
 };
 ```
 
+OR
+
+```
+FB_APPID='[FB APP ID HERE]' FB_SECRET='[FB SECRET HERE]' FB_CBURL='[FB CALLBACK URL HERE]' npm run start:dev
+```
+
 We need to provide all the information here. You can notice that we need the database url here too. My `local` MongoDB url looks like:
+
 ```
 mongodb://localhost:27017/reforum
 ```
 
-Now we are ready to run the application. You can run either run the development environment of the application which will include Hot-Reload for JS codes using Webpack and the Redux dev tool extension, or you can run the production edition. The default port for developer edition is `8080`, and for production is `process.env.PORT`.
+Now we are ready to run the application. You can run either run the development environment of the application which will include Hot-Reload for JS codes using Webpack and the Redux dev tool extension, or you can run the production edition. The default port for developer edition is `3030`, and for production is `process.env.PORT`.
 
 To run the app in development environment:
 ```
-$ npm run start:dev
+$ PORT=3030 npm run start:dev
 ```
 
 To run the app in production environment:
 ```
-$ npm run start
+$ PORT=3030 npm run start
 ```
 
-Now, if you visit [http://localhost:8080](http://localhost:8080) (if you ran the dev), or the production URL, you will see that the application is up and running. Congratulation! But, wait a minute, it's showing you `Sorry, couldn't find the forum`. That is because, we didn't create any forum yet. You can now sign up via github and then visit the admin panel with the url [http://localhost:8080/admin](http://localhost:8080/admin). The application is currently configured in a way that, the first user will become the admin for the system.
+Now, if you visit [http://localhost:3030](http://localhost:3030) (if you ran the dev), or the production URL, you will see that the application is up and running. Congratulation! But, wait a minute, it's showing you `Sorry, couldn't find the forum`. That is because, we didn't create any forum yet. You can now sign up via github and then visit the admin panel with the url [http://localhost:3030/admin](http://localhost:3030/admin). The application is currently configured in a way that, the first user will become the admin for the system.
 
 Here we can create new forums and that forum will be displayed in the application. The first forum will be used as default forum.
 
