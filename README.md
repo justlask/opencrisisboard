@@ -169,6 +169,10 @@ A minimal forum application built with the following technologies:
 Any pull request, issues and contribution is very appreciated. 
 
 
-OpenCrisisBoard: [Pim de Witte](https://twitter.com/pimdewitte)
+OpenCrisisBoard: 
+
+[Pim de Witte](https://twitter.com/pimdewitte)
+
 [Alex Taylor](https://twitter.com/edencoder)
-ReForum: [Provash Shoumma](https://twitter.com/proshoumma)
+
+ReForum (what the project is based on): [Provash Shoumma](https://twitter.com/proshoumma)
