@@ -26,6 +26,12 @@ const userAPI = (app) => {
     passport.authenticate('twitter')
   );
 
+  // github authentication route
+  app.get(
+    '/api/user/authViaGithub',
+    passport.authenticate('github')
+  );
+
   // callback route from facebook
   app.get(
     // this should match callback url of facebook app
@@ -39,6 +45,14 @@ const userAPI = (app) => {
     // this should match callback url of twitter app
     '/api/user/authViaTwitter/callback',
     passport.authenticate('twitter', { failureRedirect: '/signIn/failed' }),
+    (req, res) => { res.redirect('/'); }
+  );
+
+  // callback route from github
+  app.get(
+    // this should match callback url of github app
+    '/api/user/authViaGithub/callback',
+    passport.authenticate('github', { failureRedirect: '/signIn/failed' }),
     (req, res) => { res.redirect('/'); }
   );
 

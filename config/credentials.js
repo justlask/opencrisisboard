@@ -11,4 +11,9 @@ module.exports = {
   TW_APPID : process.env.TW_APPID || null,
   TW_CBURL : process.env.TW_CBURL || null,
   TW_SECRET : process.env.TW_SECRET || null,
+
+  // github details
+  GH_APPID : process.env.GH_APPID || null,
+  GH_CBURL : process.env.GH_CBURL || null,
+  GH_SECRET : process.env.GH_SECRET || null,
 };
