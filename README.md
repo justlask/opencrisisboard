@@ -175,4 +175,6 @@ OpenCrisisBoard:
 
 [Alex Taylor](https://twitter.com/edencoder)
 
-ReForum (what the project is based on): [Provash Shoumma](https://twitter.com/proshoumma)
+ReForum (what the project is based on): 
+
+[Provash Shoumma](https://twitter.com/proshoumma)
