@@ -17,11 +17,14 @@ OpenCrisisBoard (OCB) is a lightweight forum application based on ReForum that e
 * [API Docs](https://github.com/shoumma/ReForum/blob/master/docs/api.md)
 * [System Overview](https://github.com/shoumma/ReForum/blob/master/docs/system_overview.md)
 
-### Home View
-![home view](./docs/design_assets/home_view.jpg)
-
-### Admin View
-![admin view](./docs/design_assets/admin_view.jpg)
+### New Discussions
+![home view](https://i.imgur.com/bZjOeMx.png)
+### Unlimited Boards
+![home view](https://i.imgur.com/33oLs2r.png)
+### Login with Facebook or Twitter (It attaches to your post to avoid spread of misinformation)
+![home view](https://i.imgur.com/mh3q0Tg.png)
+### Admin View (Forum Board Creation/Deletion)
+![admin view](https://i.imgur.com/3hKEAy4.png)
 
 ## Deploy via Docker
 
@@ -87,6 +90,7 @@ $ yarn
 Since the app currently uses Twitter and Facebook authentication, we need to configure a Twitter and Facebook application. You can register a new application from this link 
 
 [Twitter Developer Portal](https://developer.twitter.com/)
+
 [Facebook Developer Portal](https://developers.facebook.com/)
 
 We need to grab the following information from the application.
@@ -149,14 +153,13 @@ Now, if you visit [http://localhost:3030](http://localhost:3030) (if you ran the
 
 Here we can create new forums and that forum will be displayed in the application. The first forum will be used as default forum.
 
-Congratulation! You now have a clone of this application in your server. :-)
-
 ## Path for Future Work
 * Add search functionality
 * Add unit tests for both backend and frontend
 * Ability to change the name and logo of the site from admin panel.
 * Make the installation process more interactive
 * Add multiple theme support.
+* Add geolocation support 
 
 ## License
 [MIT License](https://github.com/shoumma/Mister-Poster/blob/master/LICENSE). Do whatever you want to do. :-)
@@ -171,6 +174,15 @@ A minimal forum application built with the following technologies:
 * [ReForum](https://github.com/proshoumma/ReForum)
 
 ## Conclusion
-The application is created with lots of ♥. Any pull request, issues and contribution is very appreciated. It would be really great if we can take this application to the next level, where it can be used as a platform for forums.
+Any pull request, issues and contribution is very appreciated. 
+
+
+OpenCrisisBoard: 
+
+[Pim de Witte](https://twitter.com/pimdewitte)
+
+[Alex Taylor](https://twitter.com/edencoder)
+
+ReForum (what the project is based on): 
 
 [Provash Shoumma](https://twitter.com/proshoumma)
