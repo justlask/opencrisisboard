@@ -87,6 +87,7 @@ $ yarn
 Since the app currently uses Twitter and Facebook authentication, we need to configure a Twitter and Facebook application. You can register a new application from this link 
 
 [Twitter Developer Portal](https://developer.twitter.com/)
+
 [Facebook Developer Portal](https://developers.facebook.com/)
 
 We need to grab the following information from the application.
