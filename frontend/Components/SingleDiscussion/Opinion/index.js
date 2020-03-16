@@ -36,7 +36,7 @@ class Opinion extends Component {
           <img className={styles.avatar} src={userAvatar} />
           <div className={styles.userInfo}>
             <Link to={`/user/${userName}`} className={styles.name}>{userName}</Link>
-            <a href={ url || '#!' } target="_blank" className={styles.gitHandler}>
+            <a href={ url || '#!' } target={ url ? '_blank' : '_self' } className={styles.gitHandler}>
               <i className={classnames(`fa fa-${provider}`, styles.gitIcon)}></i>
               <span>{userName}</span>
             </a>

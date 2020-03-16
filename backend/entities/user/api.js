@@ -15,7 +15,9 @@ const userAPI = (app) => {
   // facebook authentication route
   app.get(
     '/api/user/authViaFacebook',
-    passport.authenticate('facebook')
+    passport.authenticate('facebook', {
+      scope : ['user_link']
+    })
   );
 
   // twitter authentication route

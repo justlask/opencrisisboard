@@ -10,14 +10,7 @@ const userSchema = mongoose.Schema({
   email: String,
   role: { type: String, default: 'user' }, // ['admin', 'moderator', 'user']
   provider : String,
-  profile: {
-    id: Number,
-    url: String,
-    location: String,
-    bio: String,
-    followers: Number,
-    following: Number,
-  },
+  profile: mongoose.Mixed,
 });
 
 module.exports = mongoose.model('user', userSchema);

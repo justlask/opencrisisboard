@@ -30,7 +30,7 @@ class DiscussionBox extends Component {
 
         { !userProfile && <div className={styles.posterInfo}>
           <Link to={`/user/${encodeURIComponent(userName)}`} className={styles.name}>{userName}</Link>
-          <a target="_blank" href={ url || '#!' } className={styles.gitHandler}>
+          <a target={ url ? '_blank' : '_self' } href={ url || '#!' } className={styles.gitHandler}>
             - <i className={classnames(`fa fa-${provider}`, styles.gitIcon)}></i> {userName}
           </a>
         </div> }
