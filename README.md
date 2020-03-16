@@ -50,6 +50,15 @@ services:
     - "27017:27017"
 ```
 
+If you are already running mongodb, simply remove the `mongo:` section and expose the port mongo is running on to `27017` on the image:
+
+```
+ports:
+    - "27017:27017"
+```
+
+Then once you're all setup, simply run `docker-compose up` to launch the full forum
+
 ## Deploy on you own server
 
 Please make sure you have following software installed in your system:
