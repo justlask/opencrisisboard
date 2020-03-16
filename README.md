@@ -141,14 +141,13 @@ Now, if you visit [http://localhost:3030](http://localhost:3030) (if you ran the
 
 Here we can create new forums and that forum will be displayed in the application. The first forum will be used as default forum.
 
-Congratulation! You now have a clone of this application in your server. :-)
-
 ## Path for Future Work
 * Add search functionality
 * Add unit tests for both backend and frontend
 * Ability to change the name and logo of the site from admin panel.
 * Make the installation process more interactive
 * Add multiple theme support.
+* Add geolocation support 
 
 ## License
 [MIT License](https://github.com/shoumma/Mister-Poster/blob/master/LICENSE). Do whatever you want to do. :-)
@@ -163,6 +162,9 @@ A minimal forum application built with the following technologies:
 * [ReForum](https://github.com/proshoumma/ReForum)
 
 ## Conclusion
-The application is created with lots of ♥. Any pull request, issues and contribution is very appreciated. It would be really great if we can take this application to the next level, where it can be used as a platform for forums.
+Any pull request, issues and contribution is very appreciated. 
 
-[Provash Shoumma](https://twitter.com/proshoumma)
+
+OpenCrisisBoard: [Pim de Witte](https://twitter.com/pimdewitte)
+[Alex Taylor](https://twitter.com/edencoder)
+ReForum: [Provash Shoumma](https://twitter.com/proshoumma)
