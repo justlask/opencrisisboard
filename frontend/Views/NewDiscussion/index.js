@@ -2,8 +2,10 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Helmet } from 'react-helmet';
+import Geocode from "react-geocode";
 import classnames from 'classnames';
 
+import { MAP_KEY } from "../../../config/credentials";
 import RichEditor from 'Components/RichEditor';
 import PinButton from 'Components/NewDiscussion/PinButton';
 import TagsInput from 'Components/NewDiscussion/TagsInput';
@@ -14,6 +16,7 @@ import {
   updateDiscussionContent,
   updateDiscussionPinStatus,
   updateDiscussionTags,
+  updateDiscussionGeoLocation,
 } from './actions';
 
 import styles from './styles.css';
@@ -27,6 +30,8 @@ class NewDiscussion extends Component {
       forumId: null,
       userId: null,
       fatalError: null,
+      browserLocationNotAvailable: false,
+      address: '',  // not saving with post object, only saving geolocation 
     };
   }
 
@@ -38,6 +43,7 @@ class NewDiscussion extends Component {
     } = this.props;
 
     this.setUserAndForumID(user, forums, currentForum);
+    this.getBrowserLocation();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -65,6 +71,43 @@ class NewDiscussion extends Component {
     }
   }
 
+  getBrowserLocation() {
+    if (!navigator.geolocation) {
+      this.setState({ browserLocationNotAvailable: true })
+    } else {
+      navigator.geolocation.getCurrentPosition(
+        position => {
+          this.props.updateDiscussionGeoLocation({
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          })
+        },
+        error => this.setState({ browserLocationNotAvailable: true })
+      )
+    }
+  }
+
+  getGeolocationFromAddress() {
+    const { address } = this.state;
+
+    Geocode.fromAddress(address).then(
+      response => {
+        const { lat, lng } = response.results[0].geometry.location;
+        this.props.updateDiscussionGeoLocation({lat, lng});
+      },
+      error => {
+        console.error(error);
+      }
+    );
+  }
+
+  getMapAddress() {
+    const { geoLocation } = this.props.newDiscussion;
+    if (!geoLocation) return null;
+
+    return `https://maps.googleapis.com/maps/api/staticmap?center=${geoLocation.lat},${geoLocation.lng}&zoom=12&size=400x400&key=${MAP_KEY}`
+  }
+
   renderEditor() {
     const {
       authenticated,
@@ -85,11 +128,14 @@ class NewDiscussion extends Component {
       content,
       tags,
       pinned,
+      geoLocation
     } = this.props.newDiscussion;
 
     const {
       forumId,
       userId,
+      browserLocationNotAvailable,
+      address,
     } = this.state;
 
     // only show the editor when user is authenticated
@@ -103,6 +149,18 @@ class NewDiscussion extends Component {
           value={title}
           onChange={(event) => { updateDiscussionTitle(event.target.value); }}
         />,
+        browserLocationNotAvailable && <input
+          key={'address'}
+          type="text"
+          className={styles.addressInput}
+          placeholder={'Address...'}
+          value={address} 
+          onChange={(event) => { this.setState({ address: event.target.value }); }}
+          onBlur={(event) => { 
+            const { value } = event.target;
+            if (value !== '') this.getGeolocationFromAddress();
+          }}
+        />,
         (role === 'admin') && <PinButton
           key={'pinned'}
           value={pinned}
@@ -113,13 +171,21 @@ class NewDiscussion extends Component {
           value={tags}
           onChange={(tags) => { updateDiscussionTags(tags); }}
         />,
-        <RichEditor
-          key={'content'}
-          type='newDiscussion'
-          value={content}
-          onChange={(value) => { updateDiscussionContent(value); }}
-          onSave={() => { postDiscussion(userId, forumId, currentForum); }}
-        />,
+        <div key={'discussionEditor'} className={styles.editorColumns}>
+          <RichEditor
+            key={'content'}
+            type='newDiscussion'
+            value={content}
+            onChange={(value) => { updateDiscussionContent(value); }}
+            onSave={() => postDiscussion(userId, forumId, currentForum)}
+          />
+          {geoLocation && <img
+            className={styles.locationMap}
+            src={this.getMapAddress()}
+            alt="Map of the given location" 
+          />}
+        </div>,
+        ,
       ];
     }
 
@@ -171,5 +237,6 @@ export default connect(
     updateDiscussionContent: (value) => { dispatch(updateDiscussionContent(value)); },
     updateDiscussionPinStatus: (value) => { dispatch(updateDiscussionPinStatus(value)); },
     updateDiscussionTags: (value) => { dispatch(updateDiscussionTags(value)); },
+    updateDiscussionGeoLocation: (value) => { dispatch(updateDiscussionGeoLocation(value)); },
   }; }
 )(NewDiscussion);

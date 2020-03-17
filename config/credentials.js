@@ -16,4 +16,7 @@ module.exports = {
   GH_APPID : process.env.GH_APPID || null,
   GH_CBURL : process.env.GH_CBURL || null,
   GH_SECRET : process.env.GH_SECRET || null,
+
+  // google map key for geocode and map
+  MAP_KEY: ""
 };

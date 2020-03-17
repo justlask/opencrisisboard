@@ -34,6 +34,15 @@
   /*border-bottom: 1px solid borderColor;*/
 }
 
+.addressInput {
+  margin: 0px;
+  padding: 10px 10px;
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: none;
+}
+
 .signInMsg {
   padding: 80px 0px;
   color: secondaryFontColor;
@@ -51,4 +60,16 @@
   align-items: center;
 
   background-color: rgba(255, 255, 255, 0.8);
+}
+
+.editorColumns {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 20px;
+}
+
+.locationMap {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
 }
