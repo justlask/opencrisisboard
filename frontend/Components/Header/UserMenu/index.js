@@ -57,6 +57,12 @@ class UserMenu extends Component {
                   <span className={styles.btnLabel}>With Github</span>
                 </Button>
               </a>
+              <a className={styles.signInLink} href={'/register/phone'}>
+                <Button className={styles.gitLoginBtn} alwaysActive>
+                  <i className={classnames('fa fa-phone', styles.subMenuOcto)}></i>
+                  <span className={styles.btnLabel}>With Phone</span>
+                </Button>
+              </a>
             </div>
           ) }
 

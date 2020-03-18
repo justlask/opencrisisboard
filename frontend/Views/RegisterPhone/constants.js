@@ -1,3 +1,3 @@
-export const FETCH_USER_PROFILE_START = 'fetch_user_profile_start';
-export const FETCH_USER_PROFILE_SUCCESS = 'fetch_user_profile_success';
-export const FETCH_USER_PROFILE_FAILURE = 'fetch_user_profile_failure';
+export const FETCH_PHONE_REGISTER_START = 'fetch_phone_register_start';
+export const FETCH_PHONE_REGISTER_SUCCESS = 'fetch_phone_register_success';
+export const FETCH_PHONE_REGISTER_FAILURE = 'fetch_phone_register_failure';

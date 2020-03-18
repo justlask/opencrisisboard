@@ -4,6 +4,6 @@
 
 import axios from 'axios';
 
-export const fetchUserProfileApi = (userSlug) => {
-  return axios.get(`/api/user/profile/${userSlug}`);
+export const fetchAuthViaPhone = (number) => {
+  return axios.get(`/api/user/authViaPhone?number=${number}`);
 };

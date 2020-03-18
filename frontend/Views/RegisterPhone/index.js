@@ -5,6 +5,11 @@ import classnames from 'classnames';
 import appLayout from 'SharedStyles/appLayout.css';
 import styles from './styles.css';
 
+// actions
+import {
+  fetchPhoneRegister,
+} from './actions';
+
 
 class RegisterPhone extends Component {
   constructor() {
