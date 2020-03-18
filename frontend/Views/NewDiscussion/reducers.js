@@ -7,6 +7,7 @@ import {
   UPDATE_DISCUSSION_CONTENT,
   UPDATE_DISCUSSION_PIN_STATUS,
   UPDATE_DISCUSSION_TAGS,
+  UPDATE_DISCUSSION_GEO_LOCATION,
 
   CLEAR_SUCCESS_MESSAGE,
 } from './constants';
@@ -19,6 +20,7 @@ const initialState = {
   content: null,
   tags: [],
   pinned: false,
+  geoLocation: null,
 };
 
 export const newDiscussionReducer = (state = initialState, action) => {
@@ -65,6 +67,11 @@ export const newDiscussionReducer = (state = initialState, action) => {
     case UPDATE_DISCUSSION_TAGS:
       return Object.assign({}, state, {
         tags: action.payload,
+      });
+
+    case UPDATE_DISCUSSION_GEO_LOCATION:
+      return Object.assign({}, state, {
+        geoLocation: action.payload,
       });
 
     default:
