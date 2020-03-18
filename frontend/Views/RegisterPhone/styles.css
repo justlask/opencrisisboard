@@ -1,0 +1,45 @@
+@value largeBP from 'SharedStyles/globalStyles';
+
+.container {
+  margin-top: 20px;
+  display: flex;
+  @media largeBP { flex-flow: row nowrap; }
+}
+
+.loadingMsg {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.errorMsg {
+  margin-top: 20px;
+  color: rgba(231, 76, 60,1.0);
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.titleInput {
+  margin: 20px 0px 0px 0px;
+  padding: 10px 10px;
+  width: 100%;
+  border: none;
+  outline: none;
+  background-color: none;
+  font-size: 24px;
+  font-weight: 300;
+  /*border-bottom: 1px solid borderColor;*/
+}
+
+.buttonInput {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px 20px;
+  width: 100%;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 13px;
+  box-shadow: none;
+  border: 1px solid #e8e8e8;
+  letter-spacing: 0.5px;
+  margin-top : 10px;
+}
