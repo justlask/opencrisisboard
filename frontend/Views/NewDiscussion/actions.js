@@ -9,6 +9,7 @@ import {
   UPDATE_DISCUSSION_CONTENT,
   UPDATE_DISCUSSION_PIN_STATUS,
   UPDATE_DISCUSSION_TAGS,
+  UPDATE_DISCUSSION_GEO_LOCATION,
 
   CLEAR_SUCCESS_MESSAGE,
 } from './constants';
@@ -147,6 +148,18 @@ export const updateDiscussionPinStatus = (value) => {
 export const updateDiscussionTags = (value) => {
   return {
     type: UPDATE_DISCUSSION_TAGS,
+    payload: value,
+  };
+};
+
+/**
+ * update the geolocation in redux state
+ * @param  {Object} value
+ * @return {action}
+ */
+export const updateDiscussionGeoLocation = (value) => {
+  return {
+    type: UPDATE_DISCUSSION_GEO_LOCATION,
     payload: value,
   };
 };

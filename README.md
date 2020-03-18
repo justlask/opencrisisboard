@@ -1,4 +1,4 @@
-![logo](https://i.imgur.com/ghFvXMI.png)
+![logo](https://i.imgur.com/DAwXpZs.png)
 
 
 # OpenCrisisBoard
