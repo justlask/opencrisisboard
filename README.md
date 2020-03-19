@@ -153,6 +153,14 @@ Now, if you visit [http://localhost:3030](http://localhost:3030) (if you ran the
 
 Here we can create new forums and that forum will be displayed in the application. The first forum will be used as default forum.
 
+## Deploy with Heroku
+* In order to deploy to Heroku you will need a Heroku account, as well as the secret keys for social login with Facebook, GitHub and Twitter.
+
+* For actual use once build is fixed
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+
+
 ## Path for Future Work
 * Add search functionality
 * Add unit tests for both backend and frontend

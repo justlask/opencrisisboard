@@ -1,0 +1,64 @@
+{
+  "name": "OpenCrisisBoard",
+  "description": "OpenCrisisBoard (OCB) is a lightweight forum application that enables social-backed, accessible communication around crisis-related topics via simple forum boards.",
+  "repository": "https://github.com/crisisboard/opencrisisboard.git",
+  "logo": "https://camo.githubusercontent.com/734cbd3f25d697d4f19914c9005708ab1dddcd49/68747470733a2f2f692e696d6775722e636f6d2f44417758705a732e706e67",
+  "keywords": ["form", "covid-19", "coronavirus"],
+  "website": "https://opencrisisboard.org/",
+  "env": {
+    "FB_APPID" : {
+      "required": true,
+      "description": "FaceBook APP ID: https://developers.facebook.com/"
+    },
+    "FB_CBURL": {
+      "required": true,
+      "description": "FaceBook Callback URL: https://developers.facebook.com/",
+      "value": "https://TheAppNameYouPicked.herokuapp.com/api/user/authViaFacebook/callback"
+    },
+    "FB_FIELDS": {
+      "required": true,
+      "description": "Do not change or remove",
+      "value": "['id', 'displayName', 'picture.type(large)', 'email', 'birthday', 'friends', 'first_name', 'last_name', 'middle_name', 'gender', 'link']",
+    },
+    "FB_SECRET": {
+      "required": true,
+      "description": "FaceBook Secret Key: https://developers.facebook.com/"
+    },
+    "TW_APPID": {
+      "required": true,
+      "description": "Twitter App ID: https://developer.twitter.com/"
+    },
+    "TW_CBURL": {
+      "required": true,
+      "description": "append your url to the start",
+      "value": "https://TheAppNameYouPicked.herokuapp.com/api/user/authViaTwitter/callback"
+    },
+    "TW_SECRET": {
+      "required": true,
+      "description": "Twitter Secret Key: https://developer.twitter.com/"
+    },
+    "GH_APPID": {
+      "required": true,
+      "description": "GitHub App ID: https://developer.github.com/program/"
+    },
+    "GH_CBURL": {
+      "required": true,
+      "description": "GitHub Callback URL: https://developer.github.com/program/",
+      "value": "https://TheAppNameYouPicked.herokuapp.com/api/user/authViaGitHub/callback"
+    },
+    "GH_SECRET": {
+      "required": true,
+      "description": "GitHub Secret Key: https://developer.github.com/program/"
+    },
+    "MAP_KEY": {
+      "required": true,
+      "description": "Google Maps API Key: https://developers.google.com/maps/documentation/javascript/get-api-key"
+    }
+  },
+  "addons": [
+    {
+      "plan": "mongolab:sandbox",
+      "as": "DBURL"
+    }
+  ]
+}
