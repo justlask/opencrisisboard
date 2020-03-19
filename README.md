@@ -160,6 +160,11 @@ Here we can create new forums and that forum will be displayed in the applicatio
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 
+*for testing in this repo
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/justlask/opencrisisboard/tree/1_click_deploy)
+
+
+
 
 ## Path for Future Work
 * Add search functionality
