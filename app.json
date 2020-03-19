@@ -18,7 +18,7 @@
     "FB_FIELDS": {
       "required": true,
       "description": "Do not change or remove",
-      "value": "['id', 'displayName', 'picture.type(large)', 'email', 'birthday', 'friends', 'first_name', 'last_name', 'middle_name', 'gender', 'link']",
+      "value": "['id', 'displayName', 'picture.type(large)', 'email', 'birthday', 'friends', 'first_name', 'last_name', 'middle_name', 'gender', 'link']"
     },
     "FB_SECRET": {
       "required": true,
