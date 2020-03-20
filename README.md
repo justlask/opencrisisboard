@@ -26,6 +26,37 @@ OpenCrisisBoard (OCB) is a lightweight forum application based on ReForum that e
 ### Admin View (Forum Board Creation/Deletion)
 ![admin view](https://i.imgur.com/3hKEAy4.png)
 
+
+## Deploy with Heroku
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/crisisboard/opencrisisboard)
+
+In order to deploy to Heroku you will need to create a Heroku account, during deployment you will be prompted for a series of keys:
+
+To add map functionality you will need to obtain keys from Google (this is the only required key needed to deploy)
+
+* [Google Developer Portal](https://developers.google.com/maps/documentation/javascript/get-api-key)
+
+To have social login you will also need keys for Twitter and/or Facebook and/or Github:
+
+* [Twitter Developer Portal](https://developer.twitter.com/)
+
+* [Facebook Developer Portal](https://developers.facebook.com/)
+
+* [GitHub Developer Portal](https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app/)
+
+We need to grab the following information from the application.
+* Client ID
+* Client Secret
+* Callback URL
+
+The `Callback URL` is the domain where Twitter or Facebook or Github will redirect the user after a successful login. You can use a domain name or local host. But we need to append the URL with the path `/api/user/authViaTwitter/callback` or `/api/user/authViaFacebook/callback`.
+
+* So, the complete url will look like:
+`https://TheNameOfYourApp.herokuapp.com/api/user/authViaTwitter/callback` or `https://TheNameOfYourApp.herokuapp.com/api/user/authViaFacebook/callback` or
+`https://TheNameOfYourApp.herokuapp.com/api/user/authViaGitHub/callback`
+
+
+
 ## Deploy via Docker
 
 The entire application is built to deploy with docker compose, you can edit all of the below environment variables in the file `docker-compose.yml`. The file looks like this:
@@ -51,6 +82,7 @@ services:
     - GH_APPID=[GITHUB APP ID HERE]
     - GH_CBURL=[GITHUB CALLBACK URL HERE]
     - GH_SECRET=[GITHUB SECRET HERE]
+    - MAP_KEY=[GOOGLE MAPS KEY HERE]
   mongo:
     image: mongo
     ports:
@@ -87,11 +119,13 @@ $ npm i
 $ yarn
 ```
 
-Since the app currently uses Twitter and Facebook authentication, we need to configure a Twitter and Facebook application. You can register a new application from this link 
+Since the app currently uses Twitter and Facebook authentication, we need to configure a Twitter and Facebook application and/or GitHub. You can register a new application from these links: 
 
 [Twitter Developer Portal](https://developer.twitter.com/)
 
 [Facebook Developer Portal](https://developers.facebook.com/)
+
+[GitHub Developer Portal](https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app/)
 
 We need to grab the following information from the application.
 * Client ID
@@ -101,11 +135,16 @@ We need to grab the following information from the application.
 The `Callback URL` is the domain where Twitter or Facebook will redirect the user after a successful login. You can use a domain name or local host. But we need to append the URL with the path `/api/user/authViaTwitter/callback` or `/api/user/authViaFacebook/callback`. So, the complete url will look like:
 `https://localhost:8080/api/user/authViaTwitter/callback` or `https://localhost:8080/api/user/authViaFacebook/callback`
 
+Additionally to add map functionality you will need to obtain keys from Google (this is the only required key needed to deploy)
+
+[Google Developer Portal](https://developers.google.com/maps/documentation/javascript/get-api-key)
+
+
 Now, we need to configure the credentials inside of the codebase. You can either edit the credentials file directly in `config/credentials.js` or add the details to your environment variables when you run the application:
 
 ```js
 module.exports = {
-  DBURL : process.env.DBURL || 'mongodb://localhost:27017/OpenCrisisBoard',
+  DBURL : process.env.DBURL_URI || process.env.DBURL || 'mongodb://localhost:27017/reforum',
 
   // facebook details
   FB_APPID : [FB APP ID HERE],
@@ -122,6 +161,8 @@ module.exports = {
   GH_APPID : [GITHUB APP ID HERE],
   GH_CBURL : [GITHUB CALLBACK URL HERE],
   GH_SECRET : [GITHUB SECRET HERE],
+
+  MAP_KEY : [GOOGLE MAPS KEY HERE]
 };
 ```
 
@@ -152,14 +193,6 @@ $ PORT=3030 npm run start
 Now, if you visit [http://localhost:3030](http://localhost:3030) (if you ran the dev), or the production URL, you will see that the application is up and running. Congratulation! But, wait a minute, it's showing you `Sorry, couldn't find the forum`. That is because, we didn't create any forum yet. You can now sign up via github and then visit the admin panel with the url [http://localhost:3030/admin](http://localhost:3030/admin). The application is currently configured in a way that, the first user will become the admin for the system.
 
 Here we can create new forums and that forum will be displayed in the application. The first forum will be used as default forum.
-
-## Deploy with Heroku
-* In order to deploy to Heroku you will need a Heroku account, as well as the secret keys for social login with Facebook, GitHub and Twitter.
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/crisisboard/opencrisisboard)
-
-
-
 
 ## Path for Future Work
 * Add search functionality
