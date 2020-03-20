@@ -31,15 +31,15 @@ Once you have an idea of what you're doing:
 1. Fork the repository
 2. Clone the repository
 3. Create a new branch for your bug fix/feature. Name your branch `bug/<issue-name>` or `feature/<issue-name>` for organizational purposes.
-4. Make your necessary changes and commit them. (TBD for notes on squashing commits here)
+4. Make your necessary changes and commit them.
 5. Push your branches to Github.
 6. Submit a pull request for review. Pull Requests can be submitted from the Pull Requests page. [Pull Requests](https://github.com/crisisboard/opencrisisboard/pulls)
 
 ## Code review/merging process
 
-After you've self-reviewed your code and opened a pull request, assign it to a contributor (preferably one who works in that feature area, whether it's frontend, backend, maps-specific, etc).
+After you've self-reviewed your code and opened a pull request, assign it to a maintainer (preferably one who works in that feature area, whether it's frontend, backend, maps-specific, etc).
 
-TBD for code-style guidelines and merging process (CI/CD? Single/Multi-approval required? etc) - add to this doc in later PR
+TBD for code-style guidelines and merging process (CI/CD? Single/Multi-approval required? Squashed commits? etc) - add to this doc in later PR
 
 ## How to file a quality bug report
 
@@ -66,4 +66,4 @@ OpenCrisisBoard has a few community outlets. Feel free to join them to chat with
 - [HelpWithCovid posting](https://helpwithcovid.com/projects/133)
 - More TBD (Social media, etc)
 
-**Credits to Nayafia for providing the template used to write this contribution guide: [See it here if you need to write your own!](https://github.com/nayafia/contributing-template)
+Big credit to Nayafia for providing the template used to write this contribution guide: [See it here if you need to write your own!](https://github.com/nayafia/contributing-template)
