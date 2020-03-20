@@ -12,9 +12,9 @@ OpenCrisisBoard is an open-sourced project and is always in need of helpful cont
 
 Here are some useful links if you are looking to contribute:
 
-- Bugs and feature requests can be found in the issues tab: [Issues](<link_to_issues>)
-- Create an issue: [Create an issue](<link_to_create_issue>)
-- Other important documentation about OpenCrisisBoard can be found in the project wiki: [Project Wiki](<link_to_wiki>)
+- Bugs and feature requests can be found in the issues tab: [Issues](https://github.com/crisisboard/opencrisisboard/issues)
+- Create an issue (can be either a bug of feature request, guidelines below): [Create an issue](https://github.com/crisisboard/opencrisisboard/issues/new)
+- Other important documentation about OpenCrisisBoard can be found in the project wiki: [Project Wiki](https://github.com/crisisboard/opencrisisboard/wiki)
 
 If you'd like to fix a bug or pick up a feature request, please read the below guide on how to do that.
 
@@ -22,28 +22,24 @@ If you'd like to fix a bug or pick up a feature request, please read the below g
 
 If you are unfamiliar with contributing to open-source software, feel free to familiarize yourself with the process by reading [this guide](https://codeburst.io/a-step-by-step-guide-to-making-your-first-github-contribution-5302260a2940). This process is also outlined below.
 
-Start by picking an issue to work on and assigning yourself [(Issues)](<link_to_issues>). If you don't understand what the issue is asking for, feel free to get in touch with us! You can join our slack here: [Slack](<link_to_slack_invite>). You can also feel free to comment on the issue.
+Start by picking an issue to work on and assigning yourself. [(Issues)](https://github.com/crisisboard/opencrisisboard/issues)
+
+If you don't understand what an issue is asking for, feel free to get in touch with us. Generally, the best way is to comment on the issue. If you are serious about becoming a continuous contributor, feel free to ask for an invite to our slack team.
 
 Once you have an idea of what you're doing:
 
 1. Fork the repository
 2. Clone the repository
-3. Create a new branch for your bug fix/feature. Name your branch `bug/issue-name` or `feature/issue-name` for organizational purposes.
+3. Create a new branch for your bug fix/feature. Name your branch `bug/<issue-name>` or `feature/<issue-name>` for organizational purposes.
 4. Make your necessary changes and commit them. (TBD for notes on squashing commits here)
 5. Push your branches to Github.
-6. Submit a pull request for review. [Submit a pull request](<link_to_submit_PR>)
+6. Submit a pull request for review. Pull Requests can be submitted from the Pull Requests page. [Pull Requests](https://github.com/crisisboard/opencrisisboard/pulls)
 
-## Code style and commit messages
+## Code review/merging process
 
-Process TBD
+After you've self-reviewed your code and opened a pull request, assign it to a contributor (preferably one who works in that feature area, whether it's frontend, backend, maps-specific, etc).
 
-## Code review process
-
-Process TBD
-
-## Particularly Small Contributions
-
-Process TBD
+TBD for code-style guidelines and merging process (CI/CD? Single/Multi-approval required? etc) - add to this doc in later PR
 
 ## How to file a quality bug report
 
@@ -55,12 +51,18 @@ There are a few key parts to a helpful bug report:
 
 ## How to file a quality feature request
 
-Process TBD
+When creating a feature request, please follow these steps:
+
+1. Make sure it isn't already on our product roadmap. This can be found in the [readme](https://github.com/crisisboard/opencrisisboard/blob/master/README.md) under the heading "Path for Future Work".
+2. Ensure that it's detailed and specific enough. Think about whether it's a frontend/backend/full-stack feature, how high-priority it is, whether it requires testing and what sort of testing it might require, etc and include these details in your request.
+3. Create an issue for it, [Create an issue](https://github.com/crisisboard/opencrisisboard/issues/new) then label it as an "enhancement".
+
+That's about it!
 
 # Community
 
 OpenCrisisBoard has a few community outlets. Feel free to join them to chat with others and to learn more about the project:
-- [Slack](<link_to_slack_invite>)
+- Slack: Ask a contributor for an invite to our slack.
 - [HelpWithCovid posting](https://helpwithcovid.com/projects/133)
 - More TBD (Social media, etc)
 
