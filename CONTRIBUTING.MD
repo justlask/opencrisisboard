@@ -47,7 +47,11 @@ Process TBD
 
 ## How to file a quality bug report
 
-Process TBD
+There are a few key parts to a helpful bug report:
+
+- Relevant information such as version numbers, server environments, code files affected, etc
+- Detailed steps to reproduce it: provide details about what you were doing when you found the bug
+- Screenshots of incorrect output and error dumps
 
 ## How to file a quality feature request
 
@@ -60,4 +64,4 @@ OpenCrisisBoard has a few community outlets. Feel free to join them to chat with
 - [HelpWithCovid posting](https://helpwithcovid.com/projects/133)
 - More TBD (Social media, etc)
 
-**Credits to Nayafia for providing the template for this contribution guide: https://github.com/nayafia/contributing-template
+**Credits to Nayafia for providing the template used to write this contribution guide: [See it here if you need to write your own!](https://github.com/nayafia/contributing-template)
