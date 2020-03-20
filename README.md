@@ -34,7 +34,7 @@ In order to deploy to Heroku you will need to create a Heroku account, during de
 
 To add map functionality you will need to obtain keys from Google (this is the only required key needed to deploy)
 
-*[Google Developer Portal](https://developers.google.com/maps/documentation/javascript/get-api-key)
+* [Google Developer Portal](https://developers.google.com/maps/documentation/javascript/get-api-key)
 
 To have social login you will also need keys for Twitter and/or Facebook and/or Github:
 
