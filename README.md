@@ -31,6 +31,7 @@ OpenCrisisBoard (OCB) is a lightweight forum application based on ReForum that e
 * In order to deploy to Heroku you will need to create a Heroku account.
 
 * To have social login you will also need keys for Twitter and/or Facebook and/or Github:
+
 [Twitter Developer Portal](https://developer.twitter.com/)
 
 [Facebook Developer Portal](https://developers.facebook.com/)
@@ -42,7 +43,9 @@ We need to grab the following information from the application.
 * Client Secret
 * Callback URL
 
-The `Callback URL` is the domain where Twitter or Facebook or Github will redirect the user after a successful login. You can use a domain name or local host. But we need to append the URL with the path `/api/user/authViaTwitter/callback` or `/api/user/authViaFacebook/callback`. So, the complete url will look like:
+The `Callback URL` is the domain where Twitter or Facebook or Github will redirect the user after a successful login. You can use a domain name or local host. But we need to append the URL with the path `/api/user/authViaTwitter/callback` or `/api/user/authViaFacebook/callback`.
+
+So, the complete url will look like:
 `https://TheNameOfYourApp.herokuapp.com/api/user/authViaTwitter/callback` or `https://TheNameOfYourApp.herokuapp.com/api/user/authViaFacebook/callback` or
 `https://TheNameOfYourApp.herokuapp.com/api/user/authViaGitHub/callback`
 
