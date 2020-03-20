@@ -66,4 +66,4 @@ OpenCrisisBoard has a few community outlets. Feel free to join them to chat with
 - [HelpWithCovid posting](https://helpwithcovid.com/projects/133)
 - More TBD (Social media, etc)
 
-Big credit to Nayafia for providing the template used to write this contribution guide: [See it here if you need to write your own!](https://github.com/nayafia/contributing-template)
+Big credit to [Nayafia](https://github.com/nayafia) for providing the template used to write this contribution guide: [See it here if you need to write your own!](https://github.com/nayafia/contributing-template)
