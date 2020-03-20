@@ -26,6 +26,30 @@ OpenCrisisBoard (OCB) is a lightweight forum application based on ReForum that e
 ### Admin View (Forum Board Creation/Deletion)
 ![admin view](https://i.imgur.com/3hKEAy4.png)
 
+
+## Deploy with Heroku
+* In order to deploy to Heroku you will need to create a Heroku account.
+
+* To have social login you will also need keys for Twitter and/or Facebook and/or Github:
+[Twitter Developer Portal](https://developer.twitter.com/)
+
+[Facebook Developer Portal](https://developers.facebook.com/)
+
+[GitHub Developer Portal](https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app/)
+
+We need to grab the following information from the application.
+* Client ID
+* Client Secret
+* Callback URL
+
+The `Callback URL` is the domain where Twitter or Facebook or Github will redirect the user after a successful login. You can use a domain name or local host. But we need to append the URL with the path `/api/user/authViaTwitter/callback` or `/api/user/authViaFacebook/callback`. So, the complete url will look like:
+`https://TheNameOfYourApp.herokuapp.com/api/user/authViaTwitter/callback` or `https://TheNameOfYourApp.herokuapp.com/api/user/authViaFacebook/callback` or
+`https://TheNameOfYourApp.herokuapp.com/api/user/authViaGitHub/callback`
+
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/crisisboard/opencrisisboard)
+
+
 ## Deploy via Docker
 
 The entire application is built to deploy with docker compose, you can edit all of the below environment variables in the file `docker-compose.yml`. The file looks like this:
@@ -152,14 +176,6 @@ $ PORT=3030 npm run start
 Now, if you visit [http://localhost:3030](http://localhost:3030) (if you ran the dev), or the production URL, you will see that the application is up and running. Congratulation! But, wait a minute, it's showing you `Sorry, couldn't find the forum`. That is because, we didn't create any forum yet. You can now sign up via github and then visit the admin panel with the url [http://localhost:3030/admin](http://localhost:3030/admin). The application is currently configured in a way that, the first user will become the admin for the system.
 
 Here we can create new forums and that forum will be displayed in the application. The first forum will be used as default forum.
-
-## Deploy with Heroku
-* In order to deploy to Heroku you will need a Heroku account, as well as the secret keys for social login with Facebook, GitHub and Twitter.
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/crisisboard/opencrisisboard)
-
-
-
 
 ## Path for Future Work
 * Add search functionality
