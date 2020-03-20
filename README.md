@@ -156,7 +156,7 @@ Here we can create new forums and that forum will be displayed in the applicatio
 ## Deploy with Heroku
 * In order to deploy to Heroku you will need a Heroku account, as well as the secret keys for social login with Facebook, GitHub and Twitter.
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/crisisboard/opencrisisboard)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/justlask/opencrisisboard/tree/1_click_deploy)
 
 
 
