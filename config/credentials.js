@@ -1,5 +1,5 @@
 module.exports = {
-  DBURL : process.env.DBURL || 'mongodb://localhost:27017/reforum',
+  DBURL : process.env.DBURL_URI || process.env.DBURL || 'mongodb://localhost:27017/reforum',
 
   // facebook details
   FB_APPID : process.env.FB_APPID || null,
