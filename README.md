@@ -30,19 +30,19 @@ OpenCrisisBoard (OCB) is a lightweight forum application based on ReForum that e
 ## Deploy with Heroku
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/crisisboard/opencrisisboard)
 
-* In order to deploy to Heroku you will need to create a Heroku account, during deployment you will be prompted for a series of keys:
+In order to deploy to Heroku you will need to create a Heroku account, during deployment you will be prompted for a series of keys:
 
-* To add map functionality you will need to obtain keys from Google (this is the only required key needed to deploy)
+To add map functionality you will need to obtain keys from Google (this is the only required key needed to deploy)
 
-[Google Developer Portal](https://developers.google.com/maps/documentation/javascript/get-api-key)
+*[Google Developer Portal](https://developers.google.com/maps/documentation/javascript/get-api-key)
 
-* To have social login you will also need keys for Twitter and/or Facebook and/or Github:
+To have social login you will also need keys for Twitter and/or Facebook and/or Github:
 
-[Twitter Developer Portal](https://developer.twitter.com/)
+* [Twitter Developer Portal](https://developer.twitter.com/)
 
-[Facebook Developer Portal](https://developers.facebook.com/)
+* [Facebook Developer Portal](https://developers.facebook.com/)
 
-[GitHub Developer Portal](https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app/)
+* [GitHub Developer Portal](https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app/)
 
 We need to grab the following information from the application.
 * Client ID
@@ -51,7 +51,7 @@ We need to grab the following information from the application.
 
 The `Callback URL` is the domain where Twitter or Facebook or Github will redirect the user after a successful login. You can use a domain name or local host. But we need to append the URL with the path `/api/user/authViaTwitter/callback` or `/api/user/authViaFacebook/callback`.
 
-So, the complete url will look like:
+* So, the complete url will look like:
 `https://TheNameOfYourApp.herokuapp.com/api/user/authViaTwitter/callback` or `https://TheNameOfYourApp.herokuapp.com/api/user/authViaFacebook/callback` or
 `https://TheNameOfYourApp.herokuapp.com/api/user/authViaGitHub/callback`
 
