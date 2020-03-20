@@ -32,12 +32,12 @@ const GH_SECRET = require('../config/credentials').GH_SECRET;
  * passport configuration
  */
 const passportConfig = (app) => {
-
+  
   passport.serializeUser((user, done) => {
     done(null, user._id);
   });
 
-  passport.deserializeUser(async function(id, done) {
+  passport.deserializeUser(async function (id, done) {
     // try/catch
     try {
       // get user
