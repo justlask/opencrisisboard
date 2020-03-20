@@ -37,7 +37,7 @@ const passportConfig = (app) => {
     done(null, user._id);
   });
 
-  passport.deserializeUser(async function (id, done) {
+  passport.deserializeUser(async (id, done) => {
     // try/catch
     try {
       // get user
