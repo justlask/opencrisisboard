@@ -7,38 +7,47 @@
   "website": "https://opencrisisboard.org/",
   "env": {
     "FB_APPID" : {
-      "description": "FaceBook APP ID: https://developers.facebook.com/"
+      "description": "FaceBook APP ID: https://developers.facebook.com/",
+      "required": false
     },
     "FB_CBURL": {
       "description": "FaceBook Callback URL: https://developers.facebook.com/",
-      "value": "https://TheAppNameYouPicked.herokuapp.com/api/user/authViaFacebook/callback"
+      "value": "https://TheAppNameYouPicked.herokuapp.com/api/user/authViaFacebook/callback",
+      "required": false
     },
     "FB_FIELDS": {
       "description": "Do not change or remove",
       "value": "['id', 'displayName', 'picture.type(large)', 'email', 'birthday', 'friends', 'first_name', 'last_name', 'middle_name', 'gender', 'link']"
     },
     "FB_SECRET": {
-      "description": "FaceBook Secret Key: https://developers.facebook.com/"
+      "description": "FaceBook Secret Key: https://developers.facebook.com/",
+      "required": false
     },
     "TW_APPID": {
-      "description": "Twitter App ID: https://developer.twitter.com/"
+      "description": "Twitter App ID: https://developer.twitter.com/",
+      "required": false
     },
     "TW_CBURL": {
       "description": "append your url to the start",
-      "value": "https://TheAppNameYouPicked.herokuapp.com/api/user/authViaTwitter/callback"
+      "value": "https://TheAppNameYouPicked.herokuapp.com/api/user/authViaTwitter/callback",
+      "required": false
     },
     "TW_SECRET": {
-      "description": "Twitter Secret Key: https://developer.twitter.com/"
+      "description": "Twitter Secret Key: https://developer.twitter.com/",
+      "required": false
     },
     "GH_APPID": {
-      "description": "GitHub App ID: https://developer.github.com/program/"
+      "description": "GitHub App ID: https://developer.github.com/program/",
+      "required": false
     },
     "GH_CBURL": {
       "description": "GitHub Callback URL: https://developer.github.com/program/",
-      "value": "https://TheAppNameYouPicked.herokuapp.com/api/user/authViaGitHub/callback"
+      "value": "https://TheAppNameYouPicked.herokuapp.com/api/user/authViaGitHub/callback",
+      "required": false
     },
     "GH_SECRET": {
-      "description": "GitHub Secret Key: https://developer.github.com/program/"
+      "description": "GitHub Secret Key: https://developer.github.com/program/",
+      "required": false
     },
     "MAP_KEY": {
       "required": true,
