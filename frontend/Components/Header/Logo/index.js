@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router'
 import styles from './styles';
 import LogoImage from 'SharedStyles/logo.png';
 
 const Logo = () => {
   return (
     <div className={styles.logoContainer}>
-      <div className={styles.logo}>
+      <Link to='/' className={styles.logo}>
         <img className={styles.logoImage} src={LogoImage} />
-      </div>
-      <div className={styles.logoTitle}>OpenCrisisBoard</div>
+      </Link>
+      <h1 className={styles.logoTitle}>
+        <Link to="/">OpenCrisisBoard</Link>
+      </h1>
     </div>
   );
 };
