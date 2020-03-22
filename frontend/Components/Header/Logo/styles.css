@@ -5,6 +5,12 @@
   align-items: center;
 }
 
+.logoContainer a,
+.logoContainer a:hover {
+  text-decoration: inherit;
+  color: inherit;
+}
+
 .logo {
   height: 40px;
 }
