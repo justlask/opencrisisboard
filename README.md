@@ -28,7 +28,7 @@ OpenCrisisBoard (OCB) is a lightweight forum application based on ReForum that e
 
 
 ## Deploy with Heroku
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/crisisboard/opencrisisboard)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/justlask/opencrisisboard/tree/cloudinary_support)
 
 In order to deploy to Heroku you will need to create a Heroku account, during deployment you will be prompted for a series of keys:
 
