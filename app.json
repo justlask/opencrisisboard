@@ -60,8 +60,7 @@
       "as": "DBURL"
     },
     {
-      "plan": "cloudinary:starter",
-      "as": "UPLOAD_CLOUD"
+      "plan": "cloudinary:starter"
     }
   ]
 }
