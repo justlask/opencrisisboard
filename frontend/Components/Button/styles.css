@@ -42,6 +42,17 @@ button {
   }
 }
 
+.primary {
+  color: white;
+  background: #4ce0b3;
+  border: 2px solid borderColor;
+  transition: color 0.3s, border 0.3s;
+  &:hover {
+    color: primaryFontColor;
+    border: 2px solid primaryFontColor;
+  }
+}
+
 .fullWidth { width: 100%; }
 .noUppercase { text-transform: none; }
 .alwaysActive {
